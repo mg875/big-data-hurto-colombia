@@ -15,7 +15,7 @@ Dos conjuntos de "Reporte Hurto por Modalidades Policía Nacional" (datos.gov.co
 1. **Carga** los dos CSV y los unifica.
 2. **Limpieza**: nombres de columnas en minúscula, texto en mayúsculas, se quitan el prefijo "ARTÍCULO 239." y el sufijo "(CT)", fechas convertidas a tipo fecha, nulos de género y grupo etario como "NO REPORTADO".
 3. **Análisis exploratorio**: casos por tipo, año, mes, departamento, municipio, género, grupo etario y arma o medio.
-4. **Visualización**: siete gráficos en la carpeta `resultados/`.
+4. **Visualización**: siete gráficos PNG, incluidos en la raíz de este repositorio.
 5. **Análisis complementario**: comparación entre años sobre un periodo comparable (2010-2025, sin residencias).
 
 ## Requisitos
@@ -49,3 +49,6 @@ Los gráficos y los datos limpios (Parquet) quedan en `~/resultados`.
 
 ## Gráficos
 Los siete gráficos generados están en la raíz del repositorio.
+
+ ## Autor
+Jorge Alexander Abreo Cardenas. Curso Big Data, UNAD.
