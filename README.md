@@ -22,33 +22,31 @@ Dos conjuntos de "Reporte Hurto por Modalidades Policía Nacional" (datos.gov.co
 Java 11, Apache Spark 3.5.8, Python 3 con `pandas` y `matplotlib` (`pip install pandas matplotlib`).
 
 ## Cómo ejecutarlo
-```bash
-mkdir -p ~/datos && cd ~/datos
-wget -O hurto_vehiculos.csv 'https://www.datos.gov.co/api/views/9vha-vh9n/rows.csv?accessType=DOWNLOAD'
-wget -O hurto_comercio_residencias.csv 'https://www.datos.gov.co/api/views/6sqw-8cg5/rows.csv?accessType=DOWNLOAD'
-cd ~
-spark-submit analisis_batch.py
-```
-Los gráficos y los datos limpios (Parquet) quedan en `~/resultados`.
+    mkdir -p ~/datos && cd ~/datos
+    wget -O hurto_vehiculos.csv 'https://www.datos.gov.co/api/views/9vha-vh9n/rows.csv?accessType=DOWNLOAD'
+    wget -O hurto_comercio_residencias.csv 'https://www.datos.gov.co/api/views/6sqw-8cg5/rows.csv?accessType=DOWNLOAD'
+    cd ~
+    spark-submit analisis_batch.py
 
+Al ejecutarlo en la máquina virtual, los gráficos y los datos limpios (Parquet) quedan en `~/resultados`. En este repositorio se subieron los siete gráficos a la raíz.
 
 ## Resultados principales
 - 1.310.019 registros entre el 1-ene-2010 y el 31-jul-2026.
 - Por tipo: entidades comerciales 44,5 %, motocicletas 38,0 %, automotores 12,1 %, residencias 5,3 %.
 - Bogotá, Antioquia y Valle concentran cerca del 52 % de los casos (sin ajustar por población).
 - Casi la mitad de los casos ocurre sin empleo de armas (48,1 %); el arma de fuego aparece en el 20,5 %.
-- Con años completos y sin residencias, la estacionalidad mensual es débil: enero es el mes con más casos y diciembre el que menos.
+- Con años completos y sin residencias, no se observa una estacionalidad mensual marcada: enero es el mes con más casos y diciembre el que menos.
 
 ## Limitaciones
 - **Residencias solo tiene registros desde 2024**, por lo que se excluye de las comparaciones entre años (gráficos 6 y 7).
-- **Entidades comerciales casi triplica sus casos en 2017** (de 23.060 a 60.311), mientras las demás modalidades no cambian igual; puede reflejar un cambio de registro y no solo un aumento real.
+- **Entidades comerciales casi triplica sus casos en 2017** (de 23.060 a 60.311), mientras las demás modalidades no cambian igual; puede reflejar un cambio de registro y no solo un aumento real, aunque esto es una hipótesis que los datos no permiten confirmar.
 - 2026 es un año parcial (hasta julio).
 - Las cifras no están ajustadas por población y están sujetas a variación según la fuente.
-- Género sin reportar en los hurtos a entidades comerciales, donde no aplica; las comparaciones por género usan solo los registros con dato.
+- En los hurtos a entidades comerciales el género no se reporta, porque no aplica; las comparaciones por género usan solo los registros con dato.
 - Se detectaron 75 registros con la etiqueta "NO REPORTA", distinta de "NO REPORTADO".
 
 ## Gráficos
 Los siete gráficos generados están en la raíz del repositorio.
 
- ## Autor
+## Autor
 Jorge Alexander Abreo Cardenas. Curso Big Data, UNAD.
